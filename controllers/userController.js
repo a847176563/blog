@@ -3,7 +3,7 @@ const model = require("../models/userModels")
 module.exports = {
     async login(ctx) {
         //接收表单数据
-       
+
         let { username, password } = ctx.request.body;
         //安全验证
         //连接数据库
@@ -14,10 +14,10 @@ module.exports = {
         // console.log('userdata',user_id);
         if (userData.length > 0) {
             //重定向 重新回到指定路由 不允许传送数据
-            
+
             ctx.session.loginUser = username;
             //文章发布用到id
-            
+
             ctx.session.userId = user_id;
             // console.log(ctx.session);
             ctx.redirect("/")
@@ -42,17 +42,17 @@ module.exports = {
             if (results.insertId) {//判断insertId是否有正常直
                 // await ctx.render('login');
                 ctx.session.loginUser = username;
-                
+
                 ctx.redirect("/login", {
                     user: ctx.session.loginUser,
-                    
-                  });
+
+                });
             } else {
                 await ctx.render('error');
             }
         }
-    },async checkUser(ctx) {
-        
+    }, async checkUser(ctx) {
+
         let { username } = ctx.query;
         //安全验证
         //连接数据库
@@ -62,7 +62,7 @@ module.exports = {
         if (userData.length > 0) {
             //重定向 重新回到指定路由 不允许传送数据
             ctx.body = "fail"
-            
+
         } else {
             ctx.body = "success"
         }
