@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+</head>
+<body>
+    <div class="container">
+        <%- include('header') %>
+
+        <div class="blog-list">
+            <%
+                for(let i=0; i<blogs.length; i++)
+                {
+                    let blog = blogs[i];
+            %>
+            <div class="blog">
+                <h3 class="blog-title">
+                    <a href="/blog/detail/<%=blog.blog_id%>"><%=blog.title%></a>
+                </h3>
+                <p class="blog-content"><%=blog.content%></p>
+                <span class="post-time"><%=blog.post_time%></span>
+            </div>
+            <%
+                }
+            %>
+            
+        </div>
+    </div>
+</body>
+</html>

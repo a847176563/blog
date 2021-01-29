@@ -1,0 +1,22 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "需求分析\r 1.登陆注册\r 2.文章列表\r 3.发表文章\r 4.文章评论",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "ejs": "^3.1.5",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-session": "^6.1.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^7.0.0",
+    "mysql": "^2.18.1"
+  }
+}

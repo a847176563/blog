@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写文章</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    
+    <style>
+        .content {
+            width: 900px;
+            height: 700px;
+            margin-top: 40px;
+        }
+
+        #block {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <%- include('header') %>
+            <div class="blog-list">
+                <form class="form-signin" action="/write" method="POST">
+                    标题：<input type="text" class="input-block-level" name="title" id="title">
+                    <div class="block"></div>
+                    </br>
+                    <textarea cols="110" rows="20" type="text" class="input-block-level" name="content"
+                        id="content"> </textarea>
+                    </br>
+                    
+                    <input type="text" value="<%=locals.user%>">
+                    <input  type="hidden" value="<%=locals.user%>" name="username" id="username" disabled>
+                    <button class="btn btn-large btn-primary" type="submit" id="btn-write">提交</button>
+                </form>
+
+            </div>
+    </div>
+</body>
+
+</html>

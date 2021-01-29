@@ -1,0 +1,16 @@
+<header>
+    <div class="title">MyBlog</div>
+    <div class="login-box">
+        <%
+            if(locals.user){
+        %>
+                <%=locals.user%>
+        <%
+            }else{
+        %>
+        <a href="/login">登录</a> / <a href="/regist">注册</a>
+        <%
+            }
+        %>
+    </div>
+</header>
