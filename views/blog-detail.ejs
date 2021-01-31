@@ -42,6 +42,15 @@
                 <%
                     }
                 %>
+
+               
+
+                <form action="/discuss/<%=blog.blog_id%>" method="POST">
+                    <textarea cols="110" rows="20" type="text" class="input-block-level" name="content" id="discuss"> </textarea>
+                    
+                </br>
+                <button class="btn btn-large btn-primary" type="submit" id="btn-discuss">提交</button>
+                </form>
             </div>
         </div>
     </div>

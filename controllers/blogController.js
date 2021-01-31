@@ -13,11 +13,16 @@ module.exports = {
 
         });
     }, async getBlogDetail(ctx) {
+        let loginUser = ctx.session.loginUser;
         let { blogId } = ctx.params;
+        ctx.request.body.blogId = blogId;
+        console.log('getblog',ctx.request.body);
+        console.log(ctx.session.username);
         let results = await model.getBlogById(blogId);
         if (results.length > 0) {
             let { blog_id, title, content, post_time } = results[0];
             let blogInfo = {
+                // user: loginUser,
                 blog_id,
                 title,
                 content,
@@ -37,6 +42,7 @@ module.exports = {
 
             await ctx.render("blog-detail", {
                 blog: blogInfo,
+                user: loginUser,
             });
         } else {
             await ctx.render("error", {
@@ -66,5 +72,25 @@ module.exports = {
         }
 
         // }
+    }, async discuss(ctx) {
+        //接收表单数据
+        var { blogId } = ctx.params;
+        var user_id = ctx.session.userId;
+        let user = ctx.request.body;
+        user.user_id = user_id;
+        user.blog_id = blogId;
+
+        
+        console.log(user);
+        let results = await model.saveDisscus(user);
+        if (results.insertId) {//判断insertId是否有正常直
+            // await ctx.render('login');
+            console.log('评论');
+            ctx.redirect("/")
+        } else {
+            await ctx.render('error');
+        }
+        //}
     },
+
 };

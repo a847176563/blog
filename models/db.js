@@ -6,7 +6,7 @@ var pool = mysql.createPool({
     user: 'root',
     password: '',
     //连接数据库名
-    database: 'blog'
+    database: 'myblog'
 });
 
 //封装的访问数据库方法 用来优化代码

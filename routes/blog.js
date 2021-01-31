@@ -21,6 +21,8 @@ router.get('/write', async (ctx) => {
     });
   });
 
+router.post('/discuss/:blogId',controller.discuss)
+
 router.post('/write', controller.write);
 
 module.exports = router;

@@ -17,6 +17,8 @@ module.exports = {
     },saveBlogData(user){
         // console.log('数据库',user);
         return db.query('INSERT INTO t_blog set ?', user)
+    },saveDisscus(user){
+        return db.query('INSERT INTO t_comment set ?', user)
     }
 
     
